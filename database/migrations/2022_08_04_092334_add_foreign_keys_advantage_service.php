@@ -25,7 +25,8 @@ class AddForeignKeysAdvantageService extends Migration
      */
     public function down()
     {
-        Schema::table('fk_advantage_service_to_service', function (Blueprint $table) {
+        Schema::table('advantage_service', function (Blueprint $table) {
+            $table->dropForeign('fk_advantage_service_to_service');
             //
         });
     }
