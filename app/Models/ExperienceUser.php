@@ -11,7 +11,7 @@ class ExperienceUser extends Model
     // use HasFactory;
     use SoftDeletes;
 
-    public $table = 'detail_user';
+    public $table = 'experience_user';
 
     protected $dates = [
         'created_at',
