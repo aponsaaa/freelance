@@ -14,6 +14,7 @@ class AddForeignKeysAdvantageUser extends Migration
     public function up()
     {
         Schema::table('advantage_user', function (Blueprint $table) {
+            $table->foreign('service_id', 'fk_advantage_user_to_service')->references('id')->on('service')->onUpdate('CASCADE')->onDelete('CASCADE');
             //
         });
     }
@@ -26,6 +27,7 @@ class AddForeignKeysAdvantageUser extends Migration
     public function down()
     {
         Schema::table('advantage_user', function (Blueprint $table) {
+            $table->dropForeign('fk_advantage_user_to_service');
             //
         });
     }
