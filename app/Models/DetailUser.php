@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\ExperienceUser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DetailUser extends Model
 {
@@ -30,4 +32,16 @@ class DetailUser extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    // One to one
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    // one to many
+    public function experience_user()
+    {
+        return $this->hasMany('App\Models\ExperienceUser', 'detail_user_id');
+    }
 }

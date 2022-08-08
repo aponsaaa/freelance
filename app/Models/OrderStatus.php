@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ExperienceUser extends Model
+class OrderStatus extends Model
 {
     // use HasFactory;
     use SoftDeletes;
 
-    public $table = 'experience_user';
+    public $table = 'order_status';
 
     protected $dates = [
         'created_at',
@@ -20,16 +20,9 @@ class ExperienceUser extends Model
     ];
 
     protected $fillable = [
-        'detail_user_id',
-        'experience',
+        'name',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
-    // one to many
-    public function detail_user()
-    {
-        return $this->belongsTo('App\Models\DetailUser', 'detail_user_id', 'id');
-    }
 }
